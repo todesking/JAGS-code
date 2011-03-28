@@ -1,0 +1,20 @@
+3.0.0
+* Added aliases for functions and distributions
+* logLikelihood function renamed to logDensity. This function now takes
+  an argument allowing fast calculation of likelihoods and priors.
+
+2.3.0
+* Solaris changes:
+  - Macro for detecting blas automatically has been updated to use new syntax
+    -library=sunperf.
+  - We no longer pass the option -no-undefined to the linker when building
+    the library or the modules.
+* Fixed memory bug in DHyper::r (bugs module)
+* Fixed segfault in BUGSMOdel when requesting monitor for node with wrong
+  dimensions
+* Fixed segfault in ConjugateMNormal
+* Fixed glm module in case of GLMs with mis-measured covariates
+  - Holmes-Held method cannot work with such models
+  - With Albert-Chib method we need to update all auxiliary data 
+    at the start of each iteration
+  
