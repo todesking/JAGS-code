@@ -3,6 +3,7 @@
 
 #include "BinaryFactory.h"
 
+namespace jags {
 namespace glm {
 
     /**
@@ -21,11 +22,12 @@ namespace glm {
 	 * so that updating of the regression parameters is done
 	 * element-wise by Gibbs sampling.
 	 */
-	BinaryGLM *newBinary(GraphView const *view, 
+	GLMMethod *newBinary(GraphView const *view, 
 			     std::vector<GraphView const *> const &sub_views,
+			     std::vector<Outcome *> const &outcomes,
 			     unsigned int chain) const;
     };
 
-}
+}}
 
 #endif /* ALBERT_CHIB_GIBBS_FACTORY_H_ */

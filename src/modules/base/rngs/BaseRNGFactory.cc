@@ -13,6 +13,7 @@ using std::string;
 
 #define DEFAULT_NORM_KIND KINDERMAN_RAMAGE
 
+namespace jags {
 namespace base {
 
     BaseRNGFactory::BaseRNGFactory()
@@ -25,6 +26,11 @@ namespace base {
 	for (unsigned int i = 0; i < _rngvec.size(); ++i) {
 	    delete _rngvec[i];
 	}
+    }
+
+    void BaseRNGFactory::setSeed(unsigned int seed)
+    {
+	_seed = seed;
     }
 
     vector<RNG *> BaseRNGFactory::makeRNGs(unsigned int n)
@@ -87,4 +93,5 @@ namespace base {
     {
 	return "base::BaseRNG";
     }
-}
+
+}}

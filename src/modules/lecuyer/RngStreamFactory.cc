@@ -93,23 +93,29 @@ static void MatVecModM (const double A[3][3], double s[3], double m)
        s[i] = x[i];
 }
 
+namespace jags {
 namespace lecuyer {
 
     RngStreamFactory::RngStreamFactory()
     {
         unsigned int seed = static_cast<unsigned int>(time(NULL));
-	unsigned int state[6];
-        RngStream::seedToState(seed, state);
-
-	for (int i = 0; i < 6; ++i) {
-	    Bg[i] = Ig[i] = state[i];
-	}    
+	setSeed(seed);
     }
     
     RngStreamFactory::~RngStreamFactory()
     {
 	for (unsigned int i = 0; i < _rngvec.size(); ++i) {
 	    delete _rngvec[i];
+	}
+    }
+
+    void RngStreamFactory::setSeed(unsigned int seed)
+    {
+	unsigned int state[6];
+	RngStream::seedToState(seed, state);
+
+	for (int i = 0; i < 6; ++i) {
+	    Bg[i] = Ig[i] = state[i];
 	}
     }
 
@@ -171,4 +177,5 @@ namespace lecuyer {
     {
 	return "lecuyer::RngStream";
     }
-}
+
+}}

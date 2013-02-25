@@ -1,4 +1,4 @@
-BUILT_SOURCES = parser.h
+BUILT_SOURCES = parser.hh
 AM_YFLAGS = -d
 
 libexec_PROGRAMS = jags-terminal
@@ -64,4 +64,5 @@ endif
 ## and cleaning of the jags shell script and its source.
 
 EXTRA_DIST = jags.in
-CLEANFILES = jags
+CLEANFILES = jags 
+DISTCLEANFILES = parser.cc parser.hh scanner.cc

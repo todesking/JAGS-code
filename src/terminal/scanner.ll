@@ -4,7 +4,7 @@
 #include <string>
 #include <cstring>
 #include <compiler/ParseTree.h>
-#include "parser.h"
+#include "parser.hh"
 
     std::vector<FILE*> file_stack;
     int command_buffer_count = 0;
@@ -52,6 +52,7 @@ samplers                zzlval.intval=SAMPLERS; return SAMPLERS;
 rng                     zzlval.intval=RNGTOK; return RNGTOK;
 factory                 zzlval.intval=FACTORY; return FACTORY;
 factories               zzlval.intval=FACTORIES; return FACTORIES;
+seed                    zzlval.intval=SEED; return SEED;
 
 coda			zzlval.intval=CODA; return CODA;
 stem			zzlval.intval=STEM; return STEM;

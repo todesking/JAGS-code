@@ -11,6 +11,8 @@
 using std::vector;
 using std::set;
 
+namespace jags {
+
 typedef bool (DeterministicNode::*NodeCheckFn) (GraphMarks const&, bool) const;
 
 static bool isLink(DeterministicNode const *dnode)
@@ -132,3 +134,5 @@ bool checkPower(GraphView const *gv, bool fixed)
     
     return true;
 }
+
+} //namespace jags

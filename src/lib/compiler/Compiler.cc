@@ -45,6 +45,8 @@ using std::max;
 using std::set;
 using std::fabs;
 
+namespace jags {
+
 #include <sstream>
 template<class T> 
 string ToString(const T& val)
@@ -285,7 +287,7 @@ Range Compiler::VariableSubsetRange(ParseTree const *var)
   }
   NodeArray *array = _model.symtab().getVariable(name);
   if (array) {
-    // It's a declared node
+    // Declared node
     vector<ParseTree*> const &range_list = var->parameters();
     
     if (range_list.empty()) {
@@ -986,8 +988,8 @@ void Compiler::traverseTree(ParseTree const *relations, CompilerMemFn fun,
   }
 
   vector<ParseTree*> const &relation_list = relations->parameters();
-  for (vector<ParseTree*>::const_iterator p = relation_list.begin(); 
-       p != relation_list.end(); ++p) 
+  for (vector<ParseTree*>::const_reverse_iterator p = relation_list.rbegin(); 
+       p != relation_list.rend(); ++p) 
     {  
       Counter *counter;
       ParseTree *var;
@@ -1174,3 +1176,4 @@ BUGSModel &Compiler::model() const
     return _model;
 }
 
+} //namespace jags

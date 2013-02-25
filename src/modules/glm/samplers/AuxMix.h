@@ -1,7 +1,11 @@
 #ifndef AUX_MIX_H_
 #define AUX_MIX_H_
 
+namespace jags {
+
 class RNG;
+
+#include "Outcome.h"
 
 namespace glm {
     
@@ -14,7 +18,7 @@ namespace glm {
      *
      * @see AMMethod
      */
-    class AuxMix {
+    class AuxMix : public Outcome {
       public:
 	/**
 	 * Virtual destructor
@@ -35,7 +39,7 @@ namespace glm {
 	virtual void update(RNG *rng) = 0;
     };
 
-}
+}}
 
 #endif /* AUX_MIX_H_ */
 

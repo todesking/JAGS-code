@@ -3,6 +3,7 @@
 
 #include "GLMMethod.h"
 
+namespace jags {
 namespace glm {
 
     /**
@@ -22,6 +23,7 @@ namespace glm {
 	 */
 	Linear(GraphView const *view,
 	       std::vector<GraphView const *> const &sub_views,
+	       std::vector<Outcome *> const &outcomes,
 	       unsigned int chain, bool gibbs);
 	/**
 	 * Returns the precision of the outcome variable with index i
@@ -43,6 +45,6 @@ namespace glm {
 	std::string name() const;
     };
     
-}
+}}
 
 #endif /* LINEAR_H_ */

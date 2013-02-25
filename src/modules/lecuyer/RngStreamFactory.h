@@ -4,6 +4,7 @@
 #include <rng/RNGFactory.h>
 #include "RngStream.h"
 
+namespace jags {
 namespace lecuyer {
     
 /**
@@ -16,6 +17,7 @@ namespace lecuyer {
     public:
 	RngStreamFactory();
 	~RngStreamFactory();
+	void setSeed(unsigned int seed);
 	void nextStream();
 	void nextSubstream();
 	std::vector<RNG *> makeRNGs(unsigned int n);
@@ -23,6 +25,6 @@ namespace lecuyer {
 	std::string name() const;
     };
 
-}
+}}
 
 #endif /* RNG_STREAM_FACTORY_H_ */
