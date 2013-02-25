@@ -3,6 +3,7 @@
 
 #include "GLMFactory.h"
 
+namespace jags {
 namespace glm {
 
     /**
@@ -24,8 +25,7 @@ namespace glm {
 	 * Checks that the outcome variable is from a normal family
 	 * with identity link (i.e. lnode is NULL)
 	 */
-	bool checkOutcome(StochasticNode const *snode,
-			  LinkNode const *lnode) const;
+	bool checkOutcome(StochasticNode const *snode) const;
 	/**
 	 * Returns a newly allocated object of class Linear
 	 */
@@ -38,6 +38,6 @@ namespace glm {
 	bool canSample(StochasticNode const *snode) const;
     };
 
-}
+}}
 
 #endif /* LINEAR_GIBBS_FACTORY_H_ */

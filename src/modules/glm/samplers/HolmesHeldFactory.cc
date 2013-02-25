@@ -5,6 +5,7 @@
 
 using std::vector;
 
+namespace jags {
 namespace glm {
 
     HolmesHeldFactory::HolmesHeldFactory()
@@ -14,9 +15,10 @@ namespace glm {
     BinaryGLM *
     HolmesHeldFactory::newBinary(GraphView const *view,
 				 vector<GraphView const *> const &sub_views,
+				 vector<Outcome *> const &outcomes,
 				 unsigned int chain) const
     {
-	return new HolmesHeld(view, sub_views, chain);
+	return new HolmesHeld(view, sub_views, outcomes, chain);
     }
 
     
@@ -29,4 +31,5 @@ namespace glm {
     {
 	return true;
     }
-}
+
+}}

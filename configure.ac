@@ -2,9 +2,9 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.63)
 
-AC_INIT([JAGS],[3.3.0],[martyn_plummer@users.sourceforge.net],[JAGS])
-JAGS_MAJOR=3
-JAGS_MINOR=3
+AC_INIT([JAGS],[4.0.0],[martyn_plummer@users.sourceforge.net],[JAGS])
+JAGS_MAJOR=4
+JAGS_MINOR=0
 AC_SUBST(JAGS_MAJOR)
 AC_SUBST(JAGS_MINOR)
 
@@ -12,7 +12,7 @@ AC_CANONICAL_HOST
 AC_CONFIG_SRCDIR([src/lib/Console.cc])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE(1.12.0)
 
 dnl libtool and ltdl configuration
 LT_PREREQ(2.2.6)
@@ -47,7 +47,7 @@ AM_CONDITIONAL(WINDOWS, test x$win = xtrue)
 dnl fortran stuff
 AC_F77_WRAPPERS
 AC_F77_LIBRARY_LDFLAGS
-AX_LAPACK([],[
+ACX_LAPACK([],[
 	AC_MSG_ERROR("You need to install the LAPACK library")
 ])
 

@@ -5,18 +5,20 @@
 
 using std::vector;
 
+namespace jags {
 namespace glm {
 
     AlbertChibGibbsFactory::AlbertChibGibbsFactory()
 	: BinaryFactory("glm::Albert-Chib-Gibbs", true)
     {}
 
-    BinaryGLM *
+    GLMMethod *
     AlbertChibGibbsFactory::newBinary(GraphView const *view,
-				 vector<GraphView const *> const &sub_views,
-				 unsigned int chain) const
+				      vector<GraphView const *> const &sub_views,
+				      vector<Outcome *> const &outcomes,
+				      unsigned int chain) const
     {
-	return new AlbertChib(view, sub_views, chain, true);
+	return new AlbertChib(view, sub_views, outcomes, chain, true);
     }
 
-}
+}}

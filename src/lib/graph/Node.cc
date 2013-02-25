@@ -14,6 +14,8 @@ using std::logic_error;
 using std::copy;
 using std::find;
 
+namespace jags {
+
 class DeterminsticNode;
 class StochasticNode;
 
@@ -192,5 +194,4 @@ void Node::removeChild(StochasticNode *node) const
     _stoch_children->erase(node);
 }
     
-
-
+} //namespace jags

@@ -3,6 +3,7 @@
 
 #include "Infix.h"
 
+namespace jags {
 namespace base {
     
 /**
@@ -20,6 +21,6 @@ public:
 		 std::vector<bool> const &fix) const;
 };
 
-}
+}}
 
 #endif /* FUNC_POW_H_ */

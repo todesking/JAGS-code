@@ -3,6 +3,7 @@
 
 #include "BinaryFactory.h"
 
+namespace jags {
 namespace glm {
 
     /**
@@ -16,8 +17,9 @@ namespace glm {
 	 * Returns a newly allocated object of class HolmesHeld for
 	 * sampling binary GLMs with probit or logistic link.
 	 */
-	BinaryGLM *newBinary(GraphView const *view, 
+	GLMMethod *newBinary(GraphView const *view, 
 			     std::vector<GraphView const *> const &sub_views,
+			     std::vector<Outcome *> const &outcomes,
 			     unsigned int chain) const;
 	/**
 	 * Returns true. The Holmes-Held update method requires a
@@ -32,6 +34,6 @@ namespace glm {
 	bool fixedDesign() const;
     };
 
-}
+}}
 
 #endif /* HOLMES_HELD_FACTORY_H_ */

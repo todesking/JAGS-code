@@ -6,18 +6,21 @@
 
 using std::vector;
 
+namespace jags {
 namespace glm {
 
     AlbertChibFactory::AlbertChibFactory()
 	: BinaryFactory("glm::Albert-Chib", false)
     {}
 
-    BinaryGLM *
+    GLMMethod *
     AlbertChibFactory::newBinary(GraphView const *view,
 				 vector<GraphView const *> const &sub_views,
+				 vector<Outcome *> const &outcomes,
 				 unsigned int chain) const
     {
-	return new AlbertChib(view, sub_views, chain, false);
+	
+	return new AlbertChib(view, sub_views, outcomes, chain, false);
     }
 
-}
+}}
