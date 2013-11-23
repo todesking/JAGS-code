@@ -1,0 +1,120 @@
+#ifndef BUGS_FUN_TEST_H
+#define BUGS_FUN_TEST_H
+
+namespace jags {
+    class ScalarFunction;
+    class VectorFunction;
+    class ArrayFunction;
+    class LinkFunction;
+}
+
+#include <cppunit/extensions/HelperMacros.h>
+#include <testlib.h>
+
+namespace jags {
+    class ScalarFunction;
+}
+
+class BugsFunTest : public CppUnit::TestFixture, public JAGSFixture
+{
+    CPPUNIT_TEST_SUITE( BugsFunTest );
+    CPPUNIT_TEST( name );
+    CPPUNIT_TEST( alias );
+    CPPUNIT_TEST( trig );
+    CPPUNIT_TEST( hyper );
+    CPPUNIT_TEST( link );
+    CPPUNIT_TEST( summary );
+    CPPUNIT_TEST( math );
+    CPPUNIT_TEST( lossy );
+    CPPUNIT_TEST( slp );
+    CPPUNIT_TEST( linear );
+    CPPUNIT_TEST( scale );
+    CPPUNIT_TEST( sort );
+    CPPUNIT_TEST( matrix );
+    CPPUNIT_TEST( inprod );
+    CPPUNIT_TEST( ifelse );
+    CPPUNIT_TEST( interplin );
+    CPPUNIT_TEST( discrete );
+    CPPUNIT_TEST_SUITE_END();
+
+    jags::ScalarFunction *_abs;
+    jags::ScalarFunction *_arccos;    
+    jags::ScalarFunction *_arccosh;
+    jags::ScalarFunction *_arcsin;
+    jags::ScalarFunction *_arcsinh;
+    jags::ScalarFunction *_arctan;
+    jags::ScalarFunction *_arctanh;
+    jags::ScalarFunction *_cloglog;
+    jags::ScalarFunction *_cos;
+    jags::ScalarFunction *_cosh;
+    jags::VectorFunction *_dinterval;
+    jags::ScalarFunction *_dround;
+    jags::ArrayFunction  *_dsum;
+    jags::LinkFunction   *_exp;
+    jags::LinkFunction   *_icloglog;
+    jags::ScalarFunction *_ifelse;
+    jags::LinkFunction   *_ilogit;
+    jags::VectorFunction *_inprod;
+    jags::VectorFunction *_interplin;
+    jags::ArrayFunction  *_inverse;
+    jags::ArrayFunction  *_logdet;
+    jags::ScalarFunction *_logfact;
+    jags::ScalarFunction *_loggam;
+    jags::ScalarFunction *_log;
+    jags::ScalarFunction *_logit;
+    jags::ArrayFunction  *_matmult;
+    jags::VectorFunction *_max;
+    jags::VectorFunction *_mean;
+    jags::VectorFunction *_min;
+    jags::VectorFunction *_order;
+    jags::LinkFunction   *_phi;
+    jags::ScalarFunction *_probit;
+    jags::VectorFunction *_prod;
+    jags::VectorFunction *_rank;
+    jags::ScalarFunction *_round;
+    jags::VectorFunction *_sd;
+    jags::ScalarFunction *_sin;
+    jags::ScalarFunction *_sinh;
+    jags::VectorFunction *_sort;
+    jags::ScalarFunction *_sqrt;
+    jags::ScalarFunction *_step;
+    jags::VectorFunction *_sum;
+    jags::ScalarFunction *_tan;
+    jags::ScalarFunction *_tanh;
+    jags::ArrayFunction  *_transpose;
+    jags::ScalarFunction *_trunc;
+    jags::ScalarFunction *_yytrunc;
+
+    void link(jags::ScalarFunction const *f, jags::LinkFunction const *link,
+	      double lower, double upper, int N);
+    void summary(double const *v, unsigned int N);
+    void trig(double v);
+    void hyper(double v);
+
+  public:
+    void setUp();
+    void tearDown();
+    
+    void name();
+    void alias();
+    void link();
+    void summary();
+    void trig();
+    void hyper();
+    void math();
+    void lossy();
+    void slp();
+    void linear();
+    void scale();
+    void sort();
+    void power();
+    void matrix();
+    void inprod();
+    void ifelse();
+    void discrete();
+    void interplin();
+};
+
+#endif  // BUGS_FUN_TEST_H
+
+
